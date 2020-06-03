@@ -7,10 +7,8 @@ package com.jmpaniego.security.config;
  */
 
 import com.jmpaniego.security.auth.UserAuthenticationService;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.NonNull;
-import lombok.experimental.FieldDefaults;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider;
 import org.springframework.security.core.AuthenticationException;
@@ -20,14 +18,10 @@ import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 
-import static lombok.AccessLevel.PACKAGE;
-import static lombok.AccessLevel.PRIVATE;
-
 @Component
-@AllArgsConstructor(access = PACKAGE)
-@FieldDefaults(level = PRIVATE, makeFinal = true)
 public class TokenAuthenticationProvider extends AbstractUserDetailsAuthenticationProvider {
-    @NonNull
+    @Autowired
+        @Qualifier("uuid")
     UserAuthenticationService auth;
 
     @Override

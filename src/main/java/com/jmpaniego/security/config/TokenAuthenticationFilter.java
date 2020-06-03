@@ -7,10 +7,7 @@ package com.jmpaniego.security.config;
     to extract the token from it.
  */
 
-import lombok.AccessLevel;
-import lombok.experimental.FieldDefaults;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -25,10 +22,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Optional;
 
-import static lombok.AccessLevel.PRIVATE;
 import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 
-@FieldDefaults(level = PRIVATE, makeFinal = true)
 public class TokenAuthenticationFilter extends AbstractAuthenticationProcessingFilter {
     private static final String BEARER = "Bearer";
 
