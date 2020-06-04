@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/public/users")
 public class PublicUsersController {
     @Autowired
-        @Qualifier("uuid")
+        @Qualifier("token")
     UserAuthenticationService authentication;
     @Autowired
     UserCrud users;
@@ -30,8 +30,7 @@ public class PublicUsersController {
             @RequestParam("password") final String password) {
 
         String encoded = passwordEncoder().encode(password);
-        users.save(new User(username,username,encoded));
-        System.out.printf("%s,%s,%s",username,password,encoded);
+        users.save(new User(username,username,passwordEncoder().encode(password)));
         return login(username, password);
     }
 

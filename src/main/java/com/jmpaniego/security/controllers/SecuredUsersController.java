@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/users")
 public class SecuredUsersController {
   @Autowired
-      @Qualifier("uuid")
+      @Qualifier("token")
   UserAuthenticationService authentication;
 
 

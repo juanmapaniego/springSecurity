@@ -21,7 +21,7 @@ import java.util.Optional;
 @Component
 public class TokenAuthenticationProvider extends AbstractUserDetailsAuthenticationProvider {
     @Autowired
-        @Qualifier("uuid")
+        @Qualifier("token")
     UserAuthenticationService auth;
 
     @Override
